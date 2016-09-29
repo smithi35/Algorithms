@@ -10,15 +10,20 @@ def generate_array(size) :
 	return array
 	
 def qsort(first, last, array): 
-	# if first and last are adjacent
-	if (last - first == 1) :
-		if (array[first] > array[last]) :
-			swap(first, last, array)
-	elif (last - first > 1) :
+	if (last - first > 1) :
 		pivot = partition(first, last, array)
 		# print("first = " + str(first) + ", last = " + str(last) + ", pivot = " + str(pivot))
-		qsort(first, pivot, array)
-		qsort(pivot+1, last, array)
+		if (pivot - first == 1) :
+			if (array[first] > array[pivot]) :
+				swap(first, last, array)
+		else :
+			qsort(first, pivot, array)
+			
+		if (last - (pivot + 1) == 1) :
+			if (array[pivot+1] > array[last]) :
+				swap (pivot+1, last, array)
+		else :
+			qsort(pivot+1, last, array)
 	
 def partition(first, last, array):
 	pivot_value = array[first]
