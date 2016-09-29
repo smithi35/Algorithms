@@ -16,13 +16,13 @@ def qsort(first, last, array):
 		if (pivot - first == 1) :
 			if (array[first] > array[pivot]) :
 				swap(first, last, array)
-		else :
+		elif (pivot - first > 1) :
 			qsort(first, pivot, array)
 			
 		if (last - (pivot + 1) == 1) :
 			if (array[pivot+1] > array[last]) :
 				swap (pivot+1, last, array)
-		else :
+		elif (last - (pivot + 1) > 1):
 			qsort(pivot+1, last, array)
 	
 def partition(first, last, array):
