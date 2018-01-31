@@ -1,0 +1,1 @@
+This runs Python 3.6.3, and was written and tested on a Windows 10 machine
